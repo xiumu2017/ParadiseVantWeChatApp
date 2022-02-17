@@ -1,0 +1,1 @@
+"D:\Tools\微信web开发者工具\cli.bat" cloud functions deploy --e paradise-20h5b --n quickstartFunctions --r --project "D:\ParadiseProject\2022\WechatProjects\ParadiseWeChatVantApp" --report_first && "D:\Tools\微信web开发者工具\cli.bat" cloud functions deploy --e test-gpufs --n quickstartFunctions --r --project "D:\ParadiseProject\2022\WechatProjects\ParadiseWeChatVantApp" --report
