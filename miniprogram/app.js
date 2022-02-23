@@ -1,5 +1,11 @@
 // app.js
+
+import request from './utils/cloudRequest'
+
 App({
+  cloudRequest() {
+    return new request()
+  },
   onLaunch: function () {
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力');
@@ -12,8 +18,29 @@ App({
         // env: 'my-env-id',
         traceUser: true,
       });
+      try {
+        var value = wx.getStorageSync('token')
+        console.log(value)
+        if (!value) {
+          wx.cloud.callContainer({
+            "config": {
+              "env": "paradise-env-1go9lkkpdd72f03e"
+            },
+            "path": "/mp/sso/doLogin?username=admin&password=macro123",
+            "header": {
+              "X-WX-SERVICE": "paradise-app",
+              "content-type": "application/json"
+            },
+            "method": "POST"
+          }).then(res => {
+            console.log(res)
+            wx.setStorageSync('token', res.data.data.token)
+          })
+        }
+      } catch (e) {
+        // Do something when catch error
+      }
     }
-
     this.globalData = {};
   }
 });

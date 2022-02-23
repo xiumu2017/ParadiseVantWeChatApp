@@ -13,10 +13,7 @@ Page({
   },
   onShow: function(){
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      console.log("zzz")
-      this.getTabBar().setData({
-        selected: 1
-      })
+      this.getTabBar().init()
     }
   },
   pageLifetimes: {

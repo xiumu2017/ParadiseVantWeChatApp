@@ -64,10 +64,7 @@ Page({
   },
   onShow: function(){
     if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      console.log("zzz")
-      this.getTabBar().setData({
-        selected: 0
-      })
+      this.getTabBar().init()
     }
   },
   onClickPowerInfo(e) {

@@ -1,0 +1,8 @@
+<!--pages/myDay.wxml-->
+<text>pages/myDay.wxml</text>
+<view>
+  <text>{{bing.url}}</text>
+  <text>{{bing.title}}</text>
+  <text>{{mock.rt}}</text>
+</view>
+<van-image width="1920" height="1080" src="{{bing.url}}" />

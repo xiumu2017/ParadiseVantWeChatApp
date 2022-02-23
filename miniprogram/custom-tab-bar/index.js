@@ -1,35 +1,79 @@
 Component({
   data: {
+    active: '',
     selected: 0,
     color: "#7A7E83",
     selectedColor: "#3cc51f",
     list: [{
-        "pagePath": "/pages/index/index",
-        "iconPath": "../images/icon_component.png",
-        "selectedIconPath": "../images/icon_component_HL.png",
-        "text": "组件"
+        icon: 'home-o',
+        text: '首页',
+        url: '/pages/paradise/myDay/myDay'
       },
       {
-        "pagePath": "/pages/paradise/index/index",
-        "iconPath": "../images/icon_API.png",
-        "selectedIconPath": "../images/icon_API_HL.png",
-        "text": "接口"
+        icon: 'apps-o',
+        text: '菜单',
+        url: '/pages/index/index'
+      },
+      {
+        icon: 'apps-o',
+        text: '记录',
+        url: ''
+      },
+      {
+        icon: 'shopping-cart-o',
+        text: '购物车',
+        url: '/pages/paradise/index/index'
+      },
+      {
+        icon: 'manager-o',
+        text: '我的',
+        url: '/pages/paradise/life/index'
+      }
+    ],
+    show: false,
+    actions: [
+      {
+        name: '拾光记忆',
+      },
+      {
+        name: '南柯一梦',
+      },
+      {
+        name: '大快朵颐'
       }
     ]
   },
   attached() {},
   methods: {
-    switchTab(e) {
-      console.log(e)
-      const data = e.currentTarget.dataset
-      const url = data.path
-      console.log(url)
-      wx.switchTab({
-        'url': url
-      })
+    onClose() {
       this.setData({
-        selected: data.index
+        show: false
       })
+    },
+
+    onSelect(event) {
+        wx.showToast({
+          title: `点击标签 ${event.detail.name}`,
+          icon: 'none',
+        });
+    },
+    onChange(event) {
+      console.log(event)
+      if (event.detail === 2) {
+        // 显示悬浮动作面板
+        this.setData({ show: true });
+
+      } else {
+        wx.switchTab({
+          url: this.data.list[event.detail].url
+        });
+      }
+    },
+    init() {
+      const page = getCurrentPages().pop();
+      this.setData({
+        active: this.data.list.findIndex(item => item.url === `/${page.route}`)
+      });
     }
   }
 })
