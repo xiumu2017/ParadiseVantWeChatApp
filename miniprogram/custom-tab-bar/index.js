@@ -56,6 +56,9 @@ Component({
           title: `点击标签 ${event.detail.name}`,
           icon: 'none',
         });
+        wx.navigateTo({
+          url: '/pages/paradise/life/meal/meal-list',
+        })
     },
     onChange(event) {
       console.log(event)

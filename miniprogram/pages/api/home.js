@@ -6,3 +6,7 @@ const request = app.cloudRequest()
 export function dayBing(params) {
   return request.getRequest('/mp/bingImage/ss', params)
 }
+
+export function fetchMealList(params) {
+  return request.getRequest('/mp/meal-record/s', params)
+}

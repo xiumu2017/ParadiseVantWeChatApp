@@ -58,10 +58,10 @@ class request {
         success: (res => {
           if (res.statusCode === 200) {
             //200: 服务端业务处理正常结束
-            resolve(res)
+            resolve(res.data)
           } else {
             //其它错误，提示用户错误信息
-            reject(res)
+            reject(res.data)
           }
         }),
         fail: (res => {

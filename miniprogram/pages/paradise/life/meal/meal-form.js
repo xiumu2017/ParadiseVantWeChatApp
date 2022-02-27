@@ -1,41 +1,37 @@
-// pages/myDay.js
-import {
-  dayBing
-} from '../../api/home'
+// pages/paradise/life/meal/meal-form.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    token: '',
-    bing: {}
+    minDate: new Date(2021, 0, 1),
+    maxDate: new Date(2021, 5, 1),
+    formData: {
+      what: "",
+      place: "",
+      cost: "0",
+      date: "",
+      type: "",
+      payType: "",
+      remark: "",
+    },
+    date: "",
+    type: "",
+    payType: "",
+    showCalendar: false,
+    showPicker: false,
+    showPayTypePicker: false,
+    typeArr: [],
+    payTypeArr: [],
+    fileList: [],
+    photos: [],
   },
 
-  getBing: function (token) {
-    dayBing({
-      'pageNum': 1,
-      'pageSize': 1
-    }).then(res => {
-      this.setData({
-        bing: res.data.list[0]
-      })
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let this_ = this;
-    wx.getStorage({
-      'key': 'token',
-      success(res) {
-        this_.setData({
-          token: res.data
-        })
-        this_.getBing("Bearer " + res.data)
-      }
-    })
 
   },
 
@@ -44,16 +40,13 @@ Page({
    */
   onReady: function () {
 
-
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
-      this.getTabBar().init()
-    }
+
   },
 
   /**

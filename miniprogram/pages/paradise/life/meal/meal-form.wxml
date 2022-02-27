@@ -1,0 +1,101 @@
+<!--pages/paradise/life/meal/meal-form.wxml-->
+<text>pages/paradise/life/meal/meal-form.wxml</text>
+<view>
+    <van-form bing:submit="onSubmit">
+      <van-field
+        readonly
+        clickable
+        name="date"
+        :value="formData.date"
+        label="日期"
+        placeholder="点击选择日期"
+        bing:click="showCalendar = true"
+      />
+      <van-calendar
+        v-model="showCalendar"
+        :min-date="minDate"
+        bing:confirm="onConfirm4Date"
+      />
+      <van-field
+        readonly
+        clickable
+        name="type"
+        :value="type"
+        label="类型"
+        placeholder="点击选择类型"
+        bing:click="showPicker = true"
+      />
+      <van-popup v-model="showPicker" position="bottom">
+        <van-picker
+          show-toolbar
+          :columns="typeArr"
+          bing:confirm="onConfirm4Type"
+          bing:cancel="showPicker = false"
+        />
+      </van-popup>
+      <van-field
+        v-model="formData.what"
+        name="what"
+        label="吃什么"
+        placeholder=""
+        :rules="[{ required: true, message: '请填写吃什么' }]"
+      />
+      <van-field
+        v-model="formData.place"
+        name="place"
+        label="在哪儿吃"
+        placeholder=""
+        :rules="[{ required: true, message: '请填写在哪儿吃' }]"
+      />
+      <van-field
+        v-model="formData.cost"
+        type="number"
+        name="cost"
+        label="花了多少"
+        placeholder=""
+        :rules="[{ required: true, message: '请填写花了多少' }]"
+      />
+      <van-field
+        readonly
+        clickable
+        name="payType"
+        :value="payType"
+        label="支付方式"
+        placeholder="点击选择支付方式"
+        bing:click="showPayTypePicker = true"
+      />
+      <van-popup v-model="showPayTypePicker" position="bottom">
+        <van-picker
+          show-toolbar
+          :columns="payTypeArr"
+          bing:confirm="onConfirm4PayType"
+          bing:cancel="showPayTypePicker = false"
+        />
+      </van-popup>
+      <van-field
+        v-model="formData.remark"
+        rows="3"
+        autosize
+        label="备注"
+        name="remark"
+        type="textarea"
+        placeholder="请输入备注"
+      />
+      <van-cell
+        >添加照片
+
+        <van-uploader
+          :after-read="afterRead"
+          v-model="fileList"
+          multiple
+          :max-count="3"
+          style="margin-left: 10%"
+        />
+      </van-cell>
+      <div style="margin: 16px">
+        <van-button round block type="info" native-type="submit"
+          >提交</van-button
+        >
+      </div>
+    </van-form>
+</view>

@@ -14,7 +14,9 @@
     "pages/sumRecordResult/index",
     "pages/paradise/index/index",
     "pages/paradise/myDay/myDay",
-    "pages/paradise/life/index"
+    "pages/paradise/life/index",
+    "pages/paradise/life/meal/meal-list",
+    "pages/paradise/life/meal/meal-form"
   ],
   "tabBar": {
     "custom": true,

@@ -1,0 +1,40 @@
+<!--pages/paradise/life/meal-list.wxml-->
+<view class="meal-container" style="margin-bottom: 50px;">
+  <van-empty wx:if="{{showEmpty}}" description="暂无数据" />
+  <!-- <van-cell-group v-for="item in mealData" :key="item.id" :title="item.title">
+      <van-cell title="吃什么" :value="item.what" :label="item.remark" />
+      <van-cell title="在哪儿吃" :value="item.place" />
+      <van-cell title="花了多少" :value="item.cost" />
+      <van-cell title="支付方式" :value="item.payTypeStr" />
+    </van-cell-group> -->
+  <van-cell-group inset>
+    <van-cell wx:for="{{mealData}}" wx:key="index" title="{{ item.title }}" use-label-slot>
+      <view slot="label">
+        <span class="custom-title" style="font-size: 15px">{{
+          item.what
+          }}</span>
+        <text wx:if="{{ item.cost > 0 }}">\n</text>
+        <br wx:if="{{item.cost > 0 }}" />
+        <van-tag type="success" wx:if="{{ item.cost > 0 }}">{{
+          "$" + item.cost + " / " + item.payTypeStr
+          }}</van-tag>
+        <text>\n</text>
+        <span class="custom-title">📍：{{ item.place }}</span>
+        <text>\n</text>
+        <span class="custom-title">🗒️：{{ item.remark }}</span>
+        <text>\n</text>
+
+
+
+        <view wx:if="{{ item.photos }}">
+          <image style="width: 300px; height: 288px; background-color: #eeeeee;" mode="aspectFit" src="{{item.photos + imgParam2}}"></image>
+          <van-image src="{{ item.photos + imgParam2 }}"></van-image>
+
+          <van-image wx:for="{{ item.photos.split(',') }}" wx:for-item="img" wx:key="index" src="{{ img + imgParam2 }}" lazy-load />
+          <image style="width: 300px; height: 280px; background-color: #eeeeee;" wx:for="{{ item.photos.split(',') }}" wx:for-item="img" wx:key="index" mode="aspectFit" src="{{img + imgParam2}}"></image>
+        </view>
+      </view>
+    </van-cell>
+  </van-cell-group>
+  <!-- <float-btn @onFloatBtnClicked="onFloatBtnClicked" /> -->
+</view>
