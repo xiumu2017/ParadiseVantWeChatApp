@@ -36,5 +36,5 @@
       </view>
     </van-cell>
   </van-cell-group>
-  <!-- <float-btn @onFloatBtnClicked="onFloatBtnClicked" /> -->
+  <flow-btn />
 </view>

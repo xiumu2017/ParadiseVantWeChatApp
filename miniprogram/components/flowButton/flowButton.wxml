@@ -1,0 +1,16 @@
+<!--components/flowButton/flowButton.wxml-->
+<movable-area class="movable_area" >
+  <movable-view direction="{{direction}}" class="movable_view" x='{{btn_x}}' y="{{btn_y}}" bindtouchend="touchEnd">
+    <button
+        form-type="{{form_type}}"
+        class="btn x-class"
+        hover-class="btn-hover" catchtap="{{url?'handleTap':''}}" open-type="{{ openType }}" data-index="{{index}}" disabled="{{disabled}}"
+        app-parameter="{{ appParameter }}" hover-stop-propagation="{{ hoverStopPropagation }}" 
+        session-from="{{ sessionFrom }}" send-message-title="{{ sendMessageTitle }}" 
+        send-message-path="{{ sendMessagePath }}" send-message-img="{{ sendMessageImg }}" show-message-card="{{ showMessageCard }}"
+        catchcontact="bindcontact" catchgetphonenumber="bindgetphonenumber" binderror="binderror" plain="true">
+        <image wx:if="{{button_img}}" src="{{button_img}}" class="movable_img" style="width: {{button_img_width}}rpx;height: {{button_img_height}}rpx;"></image>
+        <slot></slot>
+    </button>
+  </movable-view>
+</movable-area>

@@ -59,6 +59,10 @@ class request {
           if (res.statusCode === 200) {
             //200: 服务端业务处理正常结束
             resolve(res.data)
+          }else if (res.statusCode == 401){
+            wx.showToast({
+              title: 'title',
+            })
           } else {
             //其它错误，提示用户错误信息
             reject(res.data)
