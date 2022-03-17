@@ -36,5 +36,5 @@
       </view>
     </van-cell>
   </van-cell-group>
-  <flow-btn />
+  <flow-btn bindtap="openForm" />
 </view>

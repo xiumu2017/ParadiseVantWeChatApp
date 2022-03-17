@@ -1,36 +1,38 @@
 <!--pages/paradise/life/meal/meal-form.wxml-->
-<text>pages/paradise/life/meal/meal-form.wxml</text>
+<text>民以食为天~</text>
 <view>
     <van-form bing:submit="onSubmit">
+      <!-- <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" /> -->
       <van-field
         readonly
         clickable
         name="date"
-        :value="formData.date"
+        value="{{ formData.date }}"
         label="日期"
         placeholder="点击选择日期"
-        bing:click="showCalendar = true"
+        bind:click-input="onDateDisplay"
       />
       <van-calendar
-        v-model="showCalendar"
-        :min-date="minDate"
-        bing:confirm="onConfirm4Date"
+        show="{{ show }}"
+        bind:close="onDateClose"
+        bind:confirm="onDateConfirm"
       />
       <van-field
         readonly
         clickable
         name="type"
-        :value="type"
+        value="{{ typeText }}"
         label="类型"
         placeholder="点击选择类型"
-        bing:click="showPicker = true"
+        bind:click-input="onTypeDisplay"
       />
-      <van-popup v-model="showPicker" position="bottom">
+      <van-popup show="{{ showPicker }}" position="bottom">
         <van-picker
           show-toolbar
-          :columns="typeArr"
-          bing:confirm="onConfirm4Type"
-          bing:cancel="showPicker = false"
+          title="标题"
+          columns="{{ typeArr }}"
+          bind:confirm="onTypeConfirm"
+          bind:cancel="onTypeClose"
         />
       </van-popup>
       <van-field
@@ -59,17 +61,17 @@
         readonly
         clickable
         name="payType"
-        :value="payType"
+        value="{{ payTypeText }}"
         label="支付方式"
         placeholder="点击选择支付方式"
-        bing:click="showPayTypePicker = true"
+        bind:click-input="onPayTypeDisplay"
       />
-      <van-popup v-model="showPayTypePicker" position="bottom">
+      <van-popup show="{{ showPayTypePicker }}" position="bottom">
         <van-picker
           show-toolbar
-          :columns="payTypeArr"
-          bing:confirm="onConfirm4PayType"
-          bing:cancel="showPayTypePicker = false"
+          columns="{{ payTypeArr }}"
+          bind:confirm="onPayTypeConfirm"
+          bind:cancel="onPayTypeClose"
         />
       </van-popup>
       <van-field
@@ -93,7 +95,7 @@
         />
       </van-cell>
       <div style="margin: 16px">
-        <van-button round block type="info" native-type="submit"
+        <van-button round block type="info" native-type="submit" bindtap="submit"
           >提交</van-button
         >
       </div>

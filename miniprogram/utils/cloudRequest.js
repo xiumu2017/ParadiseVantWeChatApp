@@ -58,6 +58,11 @@ class request {
         success: (res => {
           if (res.statusCode === 200) {
             //200: 服务端业务处理正常结束
+            if(res.data.code === 401) {
+              wx.showToast({
+                title: '登录过期',
+              })
+            }
             resolve(res.data)
           }else if (res.statusCode == 401){
             wx.showToast({

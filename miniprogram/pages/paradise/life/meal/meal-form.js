@@ -1,32 +1,105 @@
 // pages/paradise/life/meal/meal-form.js
+import {
+  createMeal
+} from '../../../api/meal'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    show: false,
     minDate: new Date(2021, 0, 1),
     maxDate: new Date(2021, 5, 1),
-    formData: {
-      what: "",
-      place: "",
-      cost: "0",
-      date: "",
-      type: "",
-      payType: "",
-      remark: "",
-    },
+    what: "",
+    place: "",
+    cost: "0",
+    date: "",
+    type: "",
+    payType: "",
+    remark: "",
     date: "",
     type: "",
     payType: "",
     showCalendar: false,
     showPicker: false,
     showPayTypePicker: false,
-    typeArr: [],
-    payTypeArr: [],
+    typeText: '',
+    payTypeText: '',
+    typeArr: ['零食', '早餐', '午餐', '晚餐', '宵夜'],
+    payTypeArr: ['微信支付', '支付宝支付', '现金支付', '银行卡', '其它', '老婆付钱'],
     fileList: [],
     photos: [],
   },
+  onDateDisplay() {
+    this.setData({
+      show: true
+    });
+  },
+  onTypeDisplay() {
+    this.setData({
+      showPicker: true
+    });
+  },
+  onPayTypeDisplay() {
+    this.setData({
+      showPayTypePicker: true
+    });
+  },
+  onDateClose(index) {
+    this.setData({
+      show: false
+    });
+  },
+  onTypeClose(index) {
+    this.setData({
+      showPicker: false
+    });
+  },
+  onPayTypeClose(index) {
+    this.setData({
+      showPayTypePicker: false
+    });
+  },
+  onDateConfirm(event) {
+    var val = this.formatDate(event.detail)
+    this.setData({
+      show: false,
+      date: val,
+      'formData.date': val,
+    });
+  },
+  onTypeConfirm(event) {
+    var val = event.detail
+    this.setData({
+      showPicker: false,
+      typeText: val.value,
+      'formData.type': val.index,
+    });
+  },
+  onPayTypeConfirm(event) {
+    var val = event.detail
+    this.setData({
+      showPayTypePicker: false,
+      payTypeText: val.value,
+      'formData.payType': val.index,
+    });
+  },
+
+  formatDate(date) {
+    date = new Date(date);
+    return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+  },
+
+  submit() {
+    let data = this.data.formData;
+    console.log(data)
+    createMeal(data).then(res => {
+      console.log(res);
+    })
+
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

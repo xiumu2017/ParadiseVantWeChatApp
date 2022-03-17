@@ -3,7 +3,7 @@ import {
   fetchMealList
 } from '../../../api/home'
 const typeArr = ["零食", "早饭", "午饭", "晚饭", "夜宵"]
-const payTypeArr = ["微信支付", "支付宝支付", "现金", "银行卡", "其它"]
+const payTypeArr = ["微信支付", "支付宝支付", "现金", "银行卡", "其它","老婆付钱"]
 
 Page({
 
@@ -50,7 +50,11 @@ Page({
   formatDate(date) {
     return date.split(" ")[0];
   },
-
+  openForm: function() {
+    wx.navigateTo({
+      url: '/pages/paradise/life/meal/meal-form',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

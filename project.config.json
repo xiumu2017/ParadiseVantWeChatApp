@@ -30,8 +30,13 @@
     },
     "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./"
+      }
+    ],
     "minifyWXSS": true,
     "disableUseStrict": false,
     "minifyWXML": true,
@@ -41,7 +46,7 @@
   },
   "appid": "wxcc60971107b61ee6",
   "projectname": "ParadiseWeChatVantApp",
-  "libVersion": "2.14.1",
+  "libVersion": "2.21.4",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {
