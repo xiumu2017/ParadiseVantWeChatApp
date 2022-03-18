@@ -2,12 +2,11 @@
 <text>民以食为天~</text>
 <view>
     <van-form bing:submit="onSubmit">
-      <!-- <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" /> -->
       <van-field
         readonly
         clickable
         name="date"
-        value="{{ formData.date }}"
+        model:value="{{ date }}"
         label="日期"
         placeholder="点击选择日期"
         bind:click-input="onDateDisplay"
@@ -21,7 +20,7 @@
         readonly
         clickable
         name="type"
-        value="{{ typeText }}"
+        model:value="{{ typeText }}"
         label="类型"
         placeholder="点击选择类型"
         bind:click-input="onTypeDisplay"
@@ -38,21 +37,24 @@
       <van-field
         v-model="formData.what"
         name="what"
+        model:value="{{ what }}"
         label="吃什么"
-        placeholder=""
+        placeholder="吃的啥~"
         :rules="[{ required: true, message: '请填写吃什么' }]"
       />
       <van-field
         v-model="formData.place"
         name="place"
+        model:value="{{ place }}"
         label="在哪儿吃"
-        placeholder=""
+        placeholder="在哪里~"
         :rules="[{ required: true, message: '请填写在哪儿吃' }]"
       />
       <van-field
         v-model="formData.cost"
         type="number"
         name="cost"
+        model:value="{{ cost }}"
         label="花了多少"
         placeholder=""
         :rules="[{ required: true, message: '请填写花了多少' }]"
@@ -80,6 +82,7 @@
         autosize
         label="备注"
         name="remark"
+        model:value="{{ remark }}"
         type="textarea"
         placeholder="请输入备注"
       />
@@ -87,8 +90,8 @@
         >添加照片
 
         <van-uploader
-          :after-read="afterRead"
-          v-model="fileList"
+          bind:after-read="afterRead"
+          file-list="{{ fileList }}"
           multiple
           :max-count="3"
           style="margin-left: 10%"

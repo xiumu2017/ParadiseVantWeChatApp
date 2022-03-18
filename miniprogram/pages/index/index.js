@@ -74,6 +74,11 @@ Page({
       url: '/pages/paradise/life/meal/meal-form',
     })
   },
+  showLogin:function () {
+    wx.navigateTo({
+      url: '/pages/paradise/login/login',
+    })
+  },
 
   onClickPowerInfo(e) {
     const index = e.currentTarget.dataset.index;

@@ -62,6 +62,9 @@ class request {
               wx.showToast({
                 title: '登录过期',
               })
+              wx.navigateTo({
+                url: '/pages/paradise/login/login',
+              })
             }
             resolve(res.data)
           }else if (res.statusCode == 401){

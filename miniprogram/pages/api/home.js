@@ -10,3 +10,11 @@ export function dayBing(params) {
 export function fetchMealList(params) {
   return request.getRequest('/mp/meal-record/s', params)
 }
+
+export function login(params) {
+  url = '/mp/sso/doLogin'
+  if (params) {
+    url = url + '?' + Object.keys(params).map(key => key + "=" + params[key]).join("&")
+  }
+  return request.postRequest(url, {})
+}

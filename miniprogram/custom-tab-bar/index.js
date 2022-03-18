@@ -31,8 +31,7 @@ Component({
       }
     ],
     show: false,
-    actions: [
-      {
+    actions: [{
         name: '拾光记忆',
       },
       {
@@ -44,7 +43,14 @@ Component({
     ]
   },
   attached() {},
+
+
   methods: {
+    onCancel() {
+      this.setData({
+        show: false
+      })
+    },
     onClose() {
       this.setData({
         show: false
@@ -52,19 +58,20 @@ Component({
     },
 
     onSelect(event) {
-        wx.showToast({
-          title: `点击标签 ${event.detail.name}`,
-          icon: 'none',
-        });
-        wx.navigateTo({
-          url: '/pages/paradise/life/meal/meal-list',
-        })
+      wx.showToast({
+        title: `点击标签 ${event.detail.name}`,
+        icon: 'none',
+      });
+      wx.navigateTo({
+        url: '/pages/paradise/life/meal/meal-list',
+      })
     },
     onChange(event) {
-      console.log(event)
       if (event.detail === 2) {
         // 显示悬浮动作面板
-        this.setData({ show: true });
+        this.setData({
+          show: true
+        });
 
       } else {
         wx.switchTab({

@@ -1,0 +1,22 @@
+<!--pages/paradise/login/login.wxml-->
+<van-row type="flex" justify="center" style="margin-top: 5%">
+
+  <image mode="aspectFit" style="width: 100%;padding: 1%;" src="https://cn.bing.com//th?id=OHR.BifengxiaPanda_ZH-CN8879969527_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp" />
+</van-row>
+<van-row style="margin-top: 3%">
+  <van-divider contentPosition="center" customStyle="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 16px' }">欢迎登录</van-divider>
+</van-row>
+<van-row style="margin-top: 2%">
+  <van-cell-group>
+    <van-field model:value="{{ username }}" name="username" label="用户名" placeholder="请输入用户名" :rules="[{ required: true, message: '请填写用户名' }]" />
+  </van-cell-group>
+  <!-- </van-row>
+    <van-row gutter="20"> -->
+  <van-cell-group>
+    <van-field model:value="{{ password }}" type="{{ passwordType }}" name="password" right-icon="{{ icon }}" label="密码" placeholder="密码" bind:click-icon="showPassword" />
+  </van-cell-group>
+</van-row>
+<van-row style="margin-top: 5%">
+  <van-button round block type="info" bind:click="onSubmit">提交</van-button>
+</van-row>
+<van-toast id="van-toast" />

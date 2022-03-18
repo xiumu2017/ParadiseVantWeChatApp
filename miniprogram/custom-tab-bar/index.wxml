@@ -14,7 +14,9 @@
 <van-action-sheet
   show="{{ show }}"
   actions="{{ actions }}"
-  cancel-text="取消"
   bind:close="onClose"
+  bind:cancel="onCancel"
   bind:select="onSelect"
+  close-on-click-overlay="true"
+  cancel-text="为什么关不掉"
 />

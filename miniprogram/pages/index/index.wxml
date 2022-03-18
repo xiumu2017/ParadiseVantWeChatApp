@@ -25,7 +25,8 @@
     </view>
   </view>
 
-  <van-button type="primary" bindtap="showForm">按钮</van-button>
+  <van-button type="primary" bindtap="showForm">Go ~ 吃饭表单</van-button>
+  <van-button type="primary" bindtap="showLogin">登录页</van-button>
 
   <view class="environment" bindtap="onChangeShowEnvChoose">当前环境 {{ selectedEnv.alias }}</view>
 

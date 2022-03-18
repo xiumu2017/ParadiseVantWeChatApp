@@ -16,7 +16,8 @@
     "pages/paradise/myDay/myDay",
     "pages/paradise/life/index",
     "pages/paradise/life/meal/meal-list",
-    "pages/paradise/life/meal/meal-form"
+    "pages/paradise/life/meal/meal-form",
+    "pages/paradise/login/login"
   ],
   "tabBar": {
     "custom": true,

@@ -19,8 +19,6 @@ Page({
     payType: "",
     remark: "",
     date: "",
-    type: "",
-    payType: "",
     showCalendar: false,
     showPicker: false,
     showPayTypePicker: false,
@@ -66,7 +64,6 @@ Page({
     this.setData({
       show: false,
       date: val,
-      'formData.date': val,
     });
   },
   onTypeConfirm(event) {
@@ -74,7 +71,7 @@ Page({
     this.setData({
       showPicker: false,
       typeText: val.value,
-      'formData.type': val.index,
+      type: val.index,
     });
   },
   onPayTypeConfirm(event) {
@@ -82,24 +79,68 @@ Page({
     this.setData({
       showPayTypePicker: false,
       payTypeText: val.value,
-      'formData.payType': val.index,
+      payType: val.index,
     });
   },
 
   formatDate(date) {
     date = new Date(date);
-    return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
   },
 
   submit() {
-    let data = this.data.formData;
+    let data = {
+      "what": this.data.what,
+      "place": this.data.place,
+      "cost": this.data.cost,
+      "date": this.data.date + " 00:00:00",
+      "type": this.data.type,
+      "payType": this.data.payType,
+      "remark": this.data.remark
+    };
     console.log(data)
     createMeal(data).then(res => {
       console.log(res);
+      if (res.code === 200) {
+        wx.showToast({
+          title: res.message,
+        })
+      } else {
+        wx.showToast({
+          title: res.message,
+        })
+      }
     })
 
   },
 
+  afterRead(event) {
+    const {
+      file
+    } = event.detail;
+    // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+    wx.uploadFile({
+      url: 'https://example.weixin.qq.com/upload', // 仅为示例，非真实的接口地址
+      filePath: file.url,
+      name: 'file',
+      formData: {
+        user: 'test'
+      },
+      success(res) {
+        // 上传完成需要更新 fileList
+        const {
+          fileList = []
+        } = this.data;
+        fileList.push({
+          ...file,
+          url: res.data
+        });
+        this.setData({
+          fileList
+        });
+      },
+    });
+  },
 
   /**
    * 生命周期函数--监听页面加载
