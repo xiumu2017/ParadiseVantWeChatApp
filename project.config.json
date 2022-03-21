@@ -2,7 +2,7 @@
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": false,
     "enhance": true,
     "postcss": true,
@@ -46,7 +46,7 @@
   },
   "appid": "wxcc60971107b61ee6",
   "projectname": "ParadiseWeChatVantApp",
-  "libVersion": "2.21.4",
+  "libVersion": "2.23.1",
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "search": {

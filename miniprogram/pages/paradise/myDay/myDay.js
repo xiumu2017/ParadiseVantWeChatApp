@@ -11,8 +11,14 @@ Page({
     token: '',
     bing: {}
   },
-
-  getBing: function (token) {
+  onImageTap(e) {
+    console.log(e)
+    wx.previewImage({
+      urls: [this.data.bing.url],
+      current: e.currentTarget.dataset.url
+    })
+  },
+  getBing: function () {
     dayBing({
       'pageNum': 1,
       'pageSize': 1
@@ -26,17 +32,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let this_ = this;
-    wx.getStorage({
-      'key': 'token',
-      success(res) {
-        this_.setData({
-          token: res.data
-        })
-        this_.getBing("Bearer " + res.data)
-      }
-    })
-
+    this.getBing();
   },
 
   /**

@@ -92,9 +92,9 @@
         <van-uploader
           bind:after-read="afterRead"
           file-list="{{ fileList }}"
+          accept="image"
           multiple
           :max-count="3"
-          style="margin-left: 10%"
         />
       </van-cell>
       <div style="margin: 16px">
@@ -103,4 +103,12 @@
         >
       </div>
     </van-form>
+
+    <van-button round block type="info" bindtap="test"
+          >测试</van-button
+        >
+
+        <van-button round block type="info" bindtap="testNoSdk"
+          >测试</van-button
+        >
 </view>

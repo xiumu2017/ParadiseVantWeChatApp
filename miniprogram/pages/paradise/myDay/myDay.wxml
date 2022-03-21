@@ -2,7 +2,9 @@
 <text>我的一天</text>
 <view>
   <text>Bing壁纸</text>
-  <text>{{bing.url}}</text>
   <text>{{bing.title}}</text>
   <van-image width="384" height="216" src="{{bing.url}}" />
+  <image src="{{bing.url}}" style="width: 100%;padding: 1%;" 	show-menu-by-longpress="true" data-index="1"
+  data-url="{{bing.url}}"
+   mode="aspectFit" bindtap="onImageTap"/>
 </view>
