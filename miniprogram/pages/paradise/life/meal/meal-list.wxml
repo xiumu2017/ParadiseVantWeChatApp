@@ -27,11 +27,12 @@
 
 
         <view wx:if="{{ item.photos }}">
-          <image style="width: 300px; height: 288px; background-color: #eeeeee;" mode="aspectFit" src="{{item.photos + imgParam2}}"></image>
-          <van-image src="{{ item.photos + imgParam2 }}"></van-image>
+          <!-- <image style="width: 300px; height: 288px; background-color: #eeeeee;" mode="aspectFit" src="{{item.photos + imgParam2}}"></image> -->
+          <!-- <van-image src="{{ item.photos + imgParam2 }}"></van-image> -->
 
-          <van-image wx:for="{{ item.photos.split(',') }}" wx:for-item="img" wx:key="index" src="{{ img + imgParam2 }}" lazy-load />
-          <image style="width: 300px; height: 280px; background-color: #eeeeee;" wx:for="{{ item.photos.split(',') }}" wx:for-item="img" wx:key="index" mode="aspectFit" src="{{img + imgParam2}}"></image>
+          <!-- <van-image wx:for="{{ item.photos.split(',') }}" wx:for-item="img" wx:key="index" src="{{ img + imgParam2 }}" lazy-load /> -->
+          <image style="width: 300px; height: 280px; background-color: #eeeeee;" 
+          wx:for="{{ item.photoArray }}" wx:for-item="img" wx:key="index" mode="aspectFit" src="{{img + imgParam2}}"></image>
         </view>
       </view>
     </van-cell>

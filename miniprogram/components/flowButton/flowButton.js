@@ -19,22 +19,22 @@ Component({
     //按钮图片的宽度，单位rpx
     button_img_width: {
       type: Number,
-      value: 150
+      value: 80
     },
     //按钮图片的高度，单位rpx
     button_img_height: {
       type: Number,
-      value: 150
+      value: 80
     },
     //移动按钮的初始x轴坐标
     btn_x: {
       type: String,
-      value: '580rpx'
+      value: '620rpx'
     },
     //移动按钮的初始y轴坐标
     btn_y: {
       type: String,
-      value: '750rpx'
+      value: '1250rpx'
     }
   },
   lifetimes: {

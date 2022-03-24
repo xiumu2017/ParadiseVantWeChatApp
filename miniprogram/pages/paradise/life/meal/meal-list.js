@@ -23,7 +23,7 @@ Page({
   onLoad: function (options) {
     fetchMealList({
       pageNum: 1,
-      pageSize: 3
+      pageSize: 9
     }).then((res) => {
       console.debug('获取 meal-list')
       console.log(res)
@@ -34,6 +34,7 @@ Page({
             this.formatDate(item.date) + " " + typeArr[item.type];
           item.payTypeStr = payTypeArr[item.payType];
           item.cost = item.cost / 100;
+          item.photoArray = item.photos.split(",")
         });
         if (mealDataArr && mealDataArr.length > 0) {
           this.setData({

@@ -15,4 +15,15 @@
   /* 高度和宽度自动根据内容的变化而变化（可移动的按钮可能是一个icon或者文字）*/
   height: auto;
   width: auto;
+  /* border-radius: 25%; */
+}
+
+.btn {
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  background: linear-gradient(45deg, lightgrey, transparent);
+}
+
+.movable_img {
+  margin-top: 1rem;
 }

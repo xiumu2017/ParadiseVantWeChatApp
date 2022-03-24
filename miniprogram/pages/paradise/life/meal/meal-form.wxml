@@ -1,6 +1,9 @@
 <!--pages/paradise/life/meal/meal-form.wxml-->
-<text>民以食为天~</text>
-<view>
+<view class="meal_head">
+  <text class="meal_title_text">~民以食为天~</text>
+</view>
+<!-- <van-divider contentPosition="center">每日饮食记录</van-divider> -->
+<view  class="meal_body">
     <van-form bing:submit="onSubmit">
       <van-field
         readonly
@@ -86,15 +89,17 @@
         type="textarea"
         placeholder="请输入备注"
       />
-      <van-cell
-        >添加照片
+
+      <van-cell title="添加照片"
+        >
 
         <van-uploader
           bind:after-read="afterRead"
+          bind:delete="onDeleteFile"
           file-list="{{ fileList }}"
           accept="image"
           multiple
-          :max-count="3"
+          max-count="{{2}}"
         />
       </van-cell>
       <div style="margin: 16px">
@@ -103,12 +108,4 @@
         >
       </div>
     </van-form>
-
-    <van-button round block type="info" bindtap="test"
-          >测试</van-button
-        >
-
-        <van-button round block type="info" bindtap="testNoSdk"
-          >测试</van-button
-        >
 </view>

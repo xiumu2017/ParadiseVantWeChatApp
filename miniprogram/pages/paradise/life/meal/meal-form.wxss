@@ -21,3 +21,29 @@
   width: 64rpx;
   height: 64rpx;
 }
+
+.value-class {
+  text-align: left;
+}
+
+.meal_head {
+  height: 3rem;
+  text-align: center;
+  /* background-color: lightpink; */
+  background: linear-gradient(gainsboro, 30%, white);
+}
+
+.meal_title_text {
+  height: 3rem;
+  padding-top: 1.8rem;
+  margin-bottom: 1rem;
+  font-family: cursive;
+  font-size: x-large;
+  /* column-gap: unset; */
+  color: goldenrod;
+  text-shadow: blueviolet;
+}
+
+.meal_body {
+  /* background-color: gainsboro; */
+}
