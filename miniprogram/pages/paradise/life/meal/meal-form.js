@@ -3,10 +3,6 @@ import {
   createMeal
 } from '../../../api/meal'
 
-import {
-  uploadByPath,
-  test
-} from '../../../../utils/upload'
 var simpleUpload = require('../../../../utils/fileUpload');
 
 Page({
@@ -16,8 +12,8 @@ Page({
    */
   data: {
     show: false,
-    minDate: new Date(2021, 0, 1),
-    maxDate: new Date(2021, 5, 1),
+    minDate: 0,
+    maxDate: 0,
     what: "",
     place: "",
     cost: "0",
@@ -93,14 +89,6 @@ Page({
   formatDate(date) {
     date = new Date(date);
     return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-  },
-
-  test() {
-    test()
-  },
-
-  testNoSdk() {
-    simpleUpload()
   },
 
   submit() {
@@ -182,7 +170,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const day = now.getDate();
+    this.setData({
+      minDate: new Date(year, month, day - 7).getTime(),
+      maxDate: new Date(year, month, day + 7).getTime(),
+    })
   },
 
   /**

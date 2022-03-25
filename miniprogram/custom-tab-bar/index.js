@@ -33,12 +33,15 @@ Component({
     show: false,
     actions: [{
         name: '拾光记忆',
+        index: 0
       },
       {
         name: '南柯一梦',
+        index: 1
       },
       {
-        name: '大快朵颐'
+        name: '大快朵颐',
+        index: 2
       }
     ]
   },
@@ -58,12 +61,26 @@ Component({
     },
 
     onSelect(event) {
+      console.log(event)
       wx.showToast({
         title: `点击标签 ${event.detail.name}`,
         icon: 'none',
       });
+      let url = ''
+      const index = event.detail.index
+      switch(index) {
+        case 0:
+          url = '/pages/paradise/life/meal/meal-list'
+          break;
+        case 1:
+          url = '/pages/paradise/life/sleep/sleep-list'
+          break;
+        case 2:
+          url = '/pages/paradise/life/time/timeline-list'
+          break;
+      }
       wx.navigateTo({
-        url: '/pages/paradise/life/meal/meal-list',
+        url: url,
       })
     },
     onChange(event) {

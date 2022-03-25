@@ -18,6 +18,7 @@
         show="{{ show }}"
         bind:close="onDateClose"
         bind:confirm="onDateConfirm"
+        min-date="{{ minDate }}" max-date="{{ maxDate }}" 
       />
       <van-field
         readonly

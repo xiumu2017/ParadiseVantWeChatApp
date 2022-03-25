@@ -1,0 +1,29 @@
+<!--pages/paradise/life/sleep/sleep-form.wxml-->
+<view class="sleep_head">
+  <text class="sleep_title_text">~梦里花落知多少~</text>
+</view>
+<!-- <van-divider contentPosition="center">每日饮食记录</van-divider> -->
+<view class="sleep_body">
+  <van-field readonly clickable name="date" model:value="{{ date }}" label="日期" placeholder="点击选择日期" bind:click-input="onDateDisplay" />
+  <van-calendar show="{{ show }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" default-date="{{today}}" bind:close="onDateClose" bind:confirm="onDateConfirm" />
+
+  <van-popup show="{{ showPicker }}" position="bottom">
+    <van-datetime-picker type="time" bind:confirm="onConfirm" bind:cancel="onCancel" />
+  </van-popup>
+  <van-field readonly clickable name="bedTimePicker" model:value="{{ bedTime }}" label="上床时间" data-index="{{1}}" placeholder="点击选择时间" bind:click-input="showPickerPopup" />
+  <van-field readonly clickable name="sleepTimePicker" model:value="{{ sleepTime }}" label="入睡时间" data-index="{{2}}" placeholder="点击选择时间" bind:click-input="showPickerPopup" />
+  <van-field readonly clickable name="wakeTimePicker" model:value="{{ wakeTime }}" label="醒来时间" data-index="{{3}}" placeholder="点击选择时间" bind:click-input="showPickerPopup" />
+  <van-field readonly clickable name="upTimePicker" model:value="{{ upTime }}" label="起床时间" data-index="{{4}}" placeholder="点击选择时间" bind:click-input="showPickerPopup" />
+  <van-field name="sleepQuality" label="睡眠质量">
+    <view slot="input">
+      <van-rate size="{{ 25 }}" count="{{ 5 }}" color="#ffd21e" void-icon="star" void-color="#eee" model:value="{{ sleepQuality }}" />
+    </view>
+  </van-field>
+  <van-field model:value="{{memory}}" name="memory" label="睡前回忆" type="textarea" rows="{{3}}" autosize placeholder="" />
+  <van-field model:value="{{ lateReason }}" name="lateReason" label="熬夜原因" placeholder="" />
+  <van-field model:value="{{ bestTime }}" name="bestTime" label="今日最佳" placeholder="" />
+  <van-field model:value="{{ remark }}" rows="{{3}}" autosize label="备注" name="remark" type="textarea" placeholder="请输入备注" />
+  <div style="margin: 16px">
+    <van-button round block type="info" native-type="submit">提交</van-button>
+  </div>
+</view>

@@ -3,8 +3,20 @@
 <view>
   <text>Bing壁纸</text>
   <text>{{bing.title}}</text>
-  <van-image width="384" height="216" src="{{bing.url}}" />
-  <image src="{{bing.url}}" style="width: 100%;padding: 1%;" 	show-menu-by-longpress="true" data-index="1"
+  <!-- <van-image width="384" height="216" src="{{bing.url}}" /> -->
+  <image src="{{bing.url}}" style="width: 96%;padding: 2%;" 	show-menu-by-longpress="true" data-index="1"
   data-url="{{bing.url}}"
    mode="aspectFit" bindtap="onImageTap"/>
+</view>
+
+<view>
+<text>睡得还好吗</text>
+</view>
+
+<view>
+<text>今天吃了啥</text>
+</view>
+
+<view>
+<text>今天干了啥</text>
 </view>

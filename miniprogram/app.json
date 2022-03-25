@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/paradise/myDay/myDay",
     "pages/index/index",
     "pages/getOpenId/index",
     "pages/getMiniProgramCode/index",
@@ -13,11 +14,12 @@
     "pages/sumRecord/index",
     "pages/sumRecordResult/index",
     "pages/paradise/index/index",
-    "pages/paradise/myDay/myDay",
     "pages/paradise/life/index",
     "pages/paradise/life/meal/meal-list",
     "pages/paradise/life/meal/meal-form",
-    "pages/paradise/login/login"
+    "pages/paradise/login/login",
+    "pages/paradise/life/sleep/sleep-list",
+    "pages/paradise/life/sleep/sleep-form"
   ],
   "tabBar": {
     "custom": true,

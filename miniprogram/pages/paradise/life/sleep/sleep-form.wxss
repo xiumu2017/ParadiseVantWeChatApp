@@ -1,0 +1,18 @@
+/* pages/paradise/life/sleep/sleep-form.wxss */
+.sleep_head {
+  height: 3rem;
+  text-align: center;
+  /* background-color: lightpink; */
+  background: linear-gradient(gainsboro, 30%, white);
+}
+
+.sleep_title_text {
+  height: 3rem;
+  padding-top: 1.8rem;
+  margin-bottom: 1rem;
+  font-family: cursive;
+  font-size: x-large;
+  /* column-gap: unset; */
+  color: goldenrod;
+  text-shadow: blueviolet;
+}

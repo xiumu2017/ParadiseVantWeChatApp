@@ -1,0 +1,27 @@
+<!--pages/paradise/life/sleep/sleep-list.wxml-->
+<text>pages/paradise/life/sleep/sleep-list.wxml</text>
+<view>
+  <van-row style="margin: 10px">
+    <van-cell-group wx:for="{{ sleepData }}" wx:key="index" title="{{ item.date + ' ' + item.title }}">
+      <van-cell title="{{ item.title }}" use-label-slot>
+        <view slot="label">
+          <text class="custom-title" style="font-size: 15px">{{
+            item.st + " ~ " + item.et
+            }}</text><text>\n</text>
+          <van-rate value="{{item.sleepQuality}}" size="15" color="#ffd21e" void-icon="star" void-color="#eee" />
+          <text>\n</text>
+          <text class="custom-title" wx:if=" {{ item.memory !== '/' }}">睡前回忆：{{ item.memory }}</text>
+          <text>\n</text>
+          <text class="custom-title" wx:show="{{ item.remark !== '/' }}">备注：{{ item.remark }}</text>
+          <text>\n</text>
+          <van-tag type="danger" wx:show="{{ item.lateReason !== '/' }}">熬夜原因：{{ item.lateReason }}</van-tag>
+          <text>\n</text>
+          <van-tag type="success" wx:if="{{ item.bestTime !== '/' }}">{{
+            item.bestTime
+            }}</van-tag>
+        </view>
+      </van-cell>
+    </van-cell-group>
+  </van-row>
+  <flow-btn bindtap="openForm" />
+</view>
